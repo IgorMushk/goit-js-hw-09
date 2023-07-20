@@ -43,8 +43,8 @@ const options = {
 flatpickr(inputCalendar, options);
 
 function onClickStart() {
-  startBtn.disabled = true;
   timeId = setInterval(() => {
+    startBtn.disabled = true;
     carentTime = new Date();
     delayTime = selectedTime - carentTime;
     if (delayTime < 0) {
