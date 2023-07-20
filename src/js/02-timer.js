@@ -6,17 +6,10 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const inputCalendar = document.querySelector('input#datetime-picker');
 const startBtn = document.querySelector('button[data-start]');
-//console.log(startBtn);
 const leftDay = document.querySelector('span[data-days]');
 const leftHours = document.querySelector('span[data-hours]');
 const leftMinutes = document.querySelector('span[data-minutes]');
 const leftSeconds = document.querySelector('span[data-seconds]');
-//console.log(leftDay);
-
-// leftDay.textContent = '01';
-// leftHours.textContent = '02';
-// leftMinutes.textContent = '03';
-// leftSeconds.textContent = '04';
 
 let timeId = 0;
 startBtn.disabled = true;
@@ -34,10 +27,7 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    //console.log(selectedDates[0]);
     const carentDate = new Date();
-    //console.log(carentDate);
-    //console.log(selectedDates[0] - carentDate);
     deltaTime = new Date(selectedDates[0] - carentDate).getTime();
     console.log(deltaTime);
     if (deltaTime > 0) {
@@ -45,15 +35,11 @@ const options = {
       selectedTime = selectedDates[0];
       startBtn.addEventListener('click', onClickStart);
     } else {
-      //alert('Please choose a date in the future');
       Notify.failure('Please choose a date in the future');
     }
   },
 };
 
-//const selectDate = flatpickr('input#datetime-picker', options);
-//console.log(selectDate);
-//flatpickr('input#datetime-picker', options);
 flatpickr(inputCalendar, options);
 
 function onClickStart() {
@@ -61,7 +47,6 @@ function onClickStart() {
   timeId = setInterval(() => {
     carentTime = new Date();
     delayTime = selectedTime - carentTime;
-    //console.log(delayTime);
     if (delayTime < 0) {
       Notify.success('Time is over');
       startBtn.disabled = true;
