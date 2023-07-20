@@ -24,6 +24,10 @@ let selectDate;
 let delayTime;
 let carentTime;
 
+Notify.init({
+  position: 'center-center',
+});
+
 const options = {
   enableTime: true,
   time_24hr: true,
@@ -53,6 +57,7 @@ const options = {
 flatpickr(inputCalendar, options);
 
 function onClickStart() {
+  startBtn.disabled = true;
   timeId = setInterval(() => {
     carentTime = new Date();
     delayTime = selectedTime - carentTime;
