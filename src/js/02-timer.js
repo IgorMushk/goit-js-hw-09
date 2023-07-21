@@ -29,7 +29,7 @@ const options = {
   onClose(selectedDates) {
     const carentDate = new Date();
     const deltaTime = new Date(selectedDates[0] - carentDate).getTime();
-    console.log(deltaTime);
+    //console.log(deltaTime);
     if (deltaTime > 0) {
       startBtn.disabled = false;
       selectedTime = selectedDates[0];
