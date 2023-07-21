@@ -13,7 +13,7 @@ const leftSeconds = document.querySelector('span[data-seconds]');
 
 let timeId = 0;
 startBtn.disabled = true;
-let selectDate;
+let selectedTime;
 let delayTime;
 let carentTime;
 
